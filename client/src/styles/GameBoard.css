@@ -1,0 +1,96 @@
+/* GameBoard.css */
+.game-container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    margin: 1rem;
+  }
+  
+  .game-container h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #444;
+  }
+  
+  .message {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: #d32f2f;
+  }
+  
+  .game-container p {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+  }
+  
+  /* Board container remains similar (adjust as needed) */
+  .board {
+    display: inline-block;
+    margin-top: 20px;
+    /* Adding a subtle border & rounded corners for a modern look */
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  /* Board row: we keep using flex for rows */
+  .board-row {
+    display: flex;
+  }
+  
+  /* Cell styling: keep visible borders and fixed dimensions */
+  .cell {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    font-size: 20px;
+    background-color: #e0e0e0;
+    transition: background-color 0.2s, transform 0.1s;
+    box-sizing: border-box;
+  }
+  
+  .cell:hover {
+    background-color: #ccc;
+    transform: translateY(-1px);
+  }
+  
+  .cell.hit {
+    background-color: #f44336;
+    color: #fff;
+    cursor: default;
+  }
+  
+  .cell.missed {
+    background-color: #64b5f6;
+    color: #fff;
+    cursor: default;
+  }
+  
+  /* Restart Button styling */
+  .restart-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    background-color: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+  }
+  
+  .restart-button:hover {
+    background-color: #1565c0;
+    transform: scale(1.02);
+  }
+  

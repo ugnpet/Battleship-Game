@@ -33,12 +33,14 @@ router.post('/shoot', (req, res) => {
   }
 
   const game = games[gameId];
-
   if (game.gameOver) {
     return res.status(400).json({ error: 'The game is already over.' });
   }
 
   const cell = game.board[x][y];
+  if (cell < 0) {
+    return res.status(400).json({ error: 'Already shot at this position.' });
+  }
 
   if (cell === 0) {
     markCell(game.board, x, y, -1);
@@ -53,7 +55,6 @@ router.post('/shoot', (req, res) => {
   } else if (cell > 0) {
     const shipId = cell;
     markCell(game.board, x, y, -2);
-    game.shotsLeft--;
 
     if (isShipSunk(game.board, shipId)) {
       game.shipsRemaining--;
@@ -67,8 +68,6 @@ router.post('/shoot', (req, res) => {
     }
 
     return res.json({ result: 'Hit', shotsLeft: game.shotsLeft });
-  } else {
-    return res.status(400).json({ error: 'Already shot at this position.' });
   }
 });
 
