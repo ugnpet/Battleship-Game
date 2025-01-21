@@ -1,49 +1,70 @@
-/* GameBoard.css */
+/* Global container styling */
 .game-container {
-    background-color: #fff;
+    text-align: center;
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    text-align: center;
+    background-color: #fff;
     max-width: 600px;
-    width: 100%;
-    margin: 1rem;
+    width: 90%;
+    margin: 2rem auto;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
   }
   
-  .game-container h1 {
+  /* Title styling */
+  .title {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: #444;
   }
   
-  .message {
-    font-weight: 600;
+  /* Status bar styling */
+  .status-bar {
+    background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+    padding: 1rem;
+    border-radius: 8px;
     margin-bottom: 1rem;
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .status-message {
     font-size: 1.2rem;
+    font-weight: 600;
     color: #d32f2f;
+    margin-bottom: 0.5rem;
   }
   
-  .game-container p {
+  .status-shots {
     font-size: 1.1rem;
-    margin: 0.5rem 0;
+    color: #333;
   }
   
-  /* Board container remains similar (adjust as needed) */
+  .shots-label {
+    margin-right: 0.5rem;
+    font-weight: 600;
+  }
+  
+  /* Restart Button container with reduced spacing */
+  .restart-button-container {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Board styling */
   .board {
     display: inline-block;
     margin-top: 20px;
-    /* Adding a subtle border & rounded corners for a modern look */
-    border: 2px solid #ccc;
+    border: 2px solid #333;
     border-radius: 8px;
     overflow: hidden;
   }
   
-  /* Board row: we keep using flex for rows */
   .board-row {
     display: flex;
   }
   
-  /* Cell styling: keep visible borders and fixed dimensions */
+  /* Cell styling */
   .cell {
     width: 40px;
     height: 40px;
@@ -75,22 +96,3 @@
     color: #fff;
     cursor: default;
   }
-  
-  /* Restart Button styling */
-  .restart-button {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    margin-top: 1.5rem;
-    background-color: #1976d2;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
-  }
-  
-  .restart-button:hover {
-    background-color: #1565c0;
-    transform: scale(1.02);
-  }
-  

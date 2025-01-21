@@ -21,7 +21,7 @@ const GameBoard = () => {
         setMessage('');
       })
       .catch((err) => {
-        console.error('Klaida paleidžiant žaidimą:', err);
+        console.error('Error starting game:', err);
       });
   };
 
@@ -58,22 +58,35 @@ const GameBoard = () => {
         setMessage(data.result || '');
       })
       .catch((err) => {
-        console.error('Klaida siunčiant užklausą:', err);
+        console.error('Error sending request:', err);
       });
   };
 
   return (
     <div className="game-container">
-      <h1>Žaidimo lenta</h1>
-      {message && <p className="message">{message}</p>}
-      <p>Likę šūviai: {shotsLeft}</p>
+      <h1 className="title">Battleship Game</h1>
+      <div className="status-bar">
+        <div className="status-message">
+          {message ? message : 'Good luck!'}
+        </div>
+        <div className="status-shots">
+          <span className="shots-label">Shots:</span>
+          <span className="shots-value">{shotsLeft}</span>
+        </div>
+      </div>
+      
+      {message.includes('Game Over') && (
+        <div className="restart-button-container">
+          <RestartButton onRestart={initializeGame} />
+        </div>
+      )}
       <div className="board">
         {board.map((row, rowIndex) => (
           <div key={rowIndex} className="board-row">
             {row.map((cell, colIndex) => {
               let cellContent = '';
               let cellClass = 'cell';
-              // 0 – tuščia; -1 – praleista; -2 – pataikyta;
+              // 0 – empty; -1 – missed; -2 – hit
               if (cell === -1) {
                 cellContent = '•';
                 cellClass += ' missed';
@@ -85,7 +98,7 @@ const GameBoard = () => {
                 <div
                   key={colIndex}
                   className={cellClass}
-                  role="button"  
+                  role="button"
                   onClick={() => handleCellClick(rowIndex, colIndex)}
                 >
                   {cellContent}
@@ -95,9 +108,6 @@ const GameBoard = () => {
           </div>
         ))}
       </div>
-      {message.includes('Game Over') && (
-        <RestartButton onRestart={initializeGame} />
-      )}
     </div>
   );
 };
