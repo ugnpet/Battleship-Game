@@ -47,7 +47,6 @@ router.post('/shoot', (req, res) => {
     game.shotsLeft--;
 
     if (isGameOver(game)) {
-      console.log('Game Over Condition:', game);
       return res.json(handleGameOver(game, 'Game Over! You ran out of shots.'));
     }
 
