@@ -3,6 +3,8 @@ const app = express();
 const PORT = 3001;
 const gameRoutes = require('./routes/gameRoutes');
 
+app.use(express.json());
+
 app.get('/', (req, res) => {
   res.send('Server is running!');
 });
