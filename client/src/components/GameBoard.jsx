@@ -47,7 +47,7 @@ const GameBoard = () => {
         setBoard((prevBoard) => {
           const newBoard = prevBoard.map((row) => [...row]);
           newBoard[rowIndex][colIndex] =
-            data.result === 'Miss'
+            (data.result === 'Miss' || data.result === "Game Over! You ran out of shots.")
               ? -1
               : data.result === 'Hit'
               ? -2
