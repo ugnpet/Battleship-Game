@@ -75,7 +75,7 @@ const GameBoard = () => {
         </div>
       </div>
       
-      {message.includes('Game Over') && (
+      {(message.includes('Game Over') || message.includes('Win') || message.includes('over')) && (
         <div className="restart-button-container">
           <RestartButton onRestart={initializeGame} />
         </div>
