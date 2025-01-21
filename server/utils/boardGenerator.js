@@ -50,8 +50,13 @@ function placeShip(board, size, shipId) {
 }
 
 function canPlaceShip(board, startX, startY, endX, endY) {
-    for (let x = Math.max(0, startX - 1); x <= Math.min(board.length - 1, endX + 1); x++) {
-        for (let y = Math.max(0, startY - 1); y <= Math.min(board[0].length - 1, endY + 1); y++) {
+    const startCheckX = Math.max(0, startX - 1);
+    const startCheckY = Math.max(0, startY - 1);
+    const endCheckX = Math.min(board.length - 1, endX + 1);
+    const endCheckY = Math.min(board[0].length - 1, endY + 1);
+
+    for (let x = startCheckX; x <= endCheckX; x++) {
+        for (let y = startCheckY; y <= endCheckY; y++) {
             if (board[x][y] !== 0) {
                 return false;
             }

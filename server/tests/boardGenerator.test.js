@@ -14,7 +14,7 @@ describe('Board Generator', () => {
 
     test('should place the correct number of ship cells', () => {
         const shipCells = board.flat().filter(cell => cell !== 0).length;
-        const expectedShipCells = 3 + 6 + 6 + 4 + 5;
+        const expectedShipCells = 5 + 4 + 6 + 6 + 3;
         expect(shipCells).toBe(expectedShipCells);
     });
 
@@ -40,8 +40,8 @@ describe('Board Generator', () => {
         };
 
         let isValid = true;
-
-        outerLoop: for (let x = 0; x < board.length; x++) {
+        outerLoop:
+        for (let x = 0; x < board.length; x++) {
             for (let y = 0; y < board[x].length; y++) {
                 if (board[x][y] !== 0 && !isValidPlacement(x, y)) {
                     isValid = false;
@@ -49,7 +49,6 @@ describe('Board Generator', () => {
                 }
             }
         }
-
         expect(isValid).toBe(true);
     });
 });
